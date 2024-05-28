@@ -60,6 +60,14 @@ const dateStrings = () => {
   console.log(utc);
 };
 
+app.get("/api/2015-12-25", (req, res) => {
+  res.json({
+    unix: new Date().getTime(),
+    utc: new Date().toUTCString(),
+  });
+});
+
+/*
 const isInvalidDate = (date) => date.toUTCString === "Invalid Date";
 
 app.get("/api/:date", (req, res) => {
@@ -86,3 +94,5 @@ app.get("/api", (req, res)=>{
     utc: new Date().toUTCString(),
   });
 })  
+
+*/
