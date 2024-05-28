@@ -46,6 +46,7 @@ app.get("/api/:date?", (req, res) => {
       console.log(date);
     }
 
+    //If date is still invalid even if req.params.date is appended, return error
     if (date.toString() === "Invalid Date") {
       console.log("error: Invalid Date");
       res.json({ error: "Invalid Date" });
@@ -58,32 +59,3 @@ app.get("/api/:date?", (req, res) => {
     });
   }
 });
-
-/*
-const isInvalidDate = (date) => date.toUTCString === "Invalid Date";
-
-app.get("/api/:date", (req, res) => {
-  let date = new Date(req.params.date);
-
-  if (isInvalidDate(date)) {
-    date = new Date(+req.params.date);
-  }
-
-  if (isInvalidDate(date)) {
-    res.json({ error: "Invalid Date" });
-    return;
-  }
-
-  res.json({
-    unix: date.getTime(),
-    utc: date.toUTCString(),
-  });
-});
-
-app.get("/api", (req, res)=>{
-  res.json({
-    unix: new Date().getTime(),
-    utc: new Date().toUTCString(),
-  });
-})  
-*/
