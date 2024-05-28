@@ -29,7 +29,7 @@ var listener = app.listen(process.env.PORT || 3000, function () {
 });
 
 /****************************************************************************/
-
+/*
 app.get("/api/:date", (req, res) => {
   const date = new Date(req.params.date);
 
@@ -38,8 +38,8 @@ app.get("/api/:date", (req, res) => {
     utc: date.toUTCString(),
   });
 });
+*/
 
-/*
 const isInvalidDate = (date) => date.toUTCString === "Invalid Date";
 
 app.get("/api/:date", (req, res) => {
@@ -67,4 +67,4 @@ app.get("/api", (req, res)=>{
   });
 })  
 
-*/
+
