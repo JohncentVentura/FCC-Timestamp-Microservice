@@ -30,40 +30,12 @@ var listener = app.listen(process.env.PORT || 3000, function () {
 
 /****************************************************************************/
 
-const dateStrings = () => {
-  const date = new Date().toString();
-  const unix = new Date().getTime().toString();
-  const day = new Date().getDay();
-  const dateOfMonth = new Date().getDate();
-  const month = new Date().getMonth();
-  const year = new Date().getFullYear();
-  const hours = new Date().getHours();
-  const minutes = new Date().getMinutes();
-  const seconds = new Date().getSeconds();
+app.get("/api/:date", (req, res) => {
+  const date = new Date(req.params.date);
 
-  const utc =
-    day +
-    " " +
-    dateOfMonth +
-    " " +
-    month +
-    " " +
-    year +
-    " " +
-    hours +
-    ":" +
-    minutes +
-    ":" +
-    seconds;
-  console.log(date);
-  console.log(unix);
-  console.log(utc);
-};
-
-app.get("/api/2015-12-25", (req, res) => {
   res.json({
-    unix: new Date().getTime(),
-    utc: new Date().toUTCString(),
+    unix: date.getTime(),
+    utc: date.toUTCString(),
   });
 });
 
